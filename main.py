@@ -14,7 +14,6 @@ chrome_options.add_argument('--user-data-dir=C:/Users/rohit/AppData/Local/Google
 chrome_options.add_argument('--profile-directory=Default')
 
 driver = webdriver.Chrome(executable_path="driver/chromedriver.exe", options=chrome_options)
-# driver = webdriver.Chrome(executable_path="driver/chromedriver.exe")
 driver.implicitly_wait(10)
 driver.maximize_window()
 
@@ -37,30 +36,30 @@ except:
     driver.quit()
 
 # message user
-send_message_to = ['Aai', 'BE PROJECT']
+send_message_to = ['BE PROJECT', 'Plan Squad', 'Aai', 'Karan Johar', 'Mangesh Khedkar']
 file_path = "C:/Users/rohit/Desktop/samplePdf.pdf"
 
+
 def send_message():
-    message = driver.find_element_by_xpath("//div[@class='_2A8P4']")
-    time.sleep(1)
-    message.send_keys("Hello, This is a Whatsapp Bot.")
-    time.sleep(1)
+    message = "Hello, This is a Whatsapp Bot."
+    driver.find_element_by_css_selector("div._1JAUF._2x4bz").send_keys(message)
+    time.sleep(2)
 
     # send message
     driver.find_element_by_xpath("//div[@class='EBaI7']/button[@class='_1E0Oz']").click()
+
 
 def send_file(file_path, user_name):
     if user_name == 'Aai':
         time.sleep(1)
         driver.find_element_by_xpath("//div[@title='Attach']").click()
         time.sleep(2)
-        # driver.find_element_by_xpath("//div[@class='_3BZyX']/ul[@class='_19rjv']/li[3]").click()
-        # time.sleep(3)
         driver.find_element_by_xpath("//input[@type='file' and @accept='*']").send_keys(file_path)
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element_by_xpath("//div[@role='button']/span[@data-icon='send']").click()
     else:
         print("Not Special User")
+
 
 def find_user(user_name):
     time.sleep(1)
@@ -74,20 +73,11 @@ def find_user(user_name):
         driver.find_element_by_xpath(f"//span[@title='{user_name}']").click()
         time.sleep(1)
         send_message()
-        time.sleep(3)
+        time.sleep(2)
         send_file(file_path, user_name)
-        # message = driver.find_element_by_xpath("//div[@class='_2A8P4']")
-        # time.sleep(1)
-        # message.send_keys("Hello, This is a Whatsapp Bot. Now working properly")
-        # time.sleep(1)
-        #
-        # # send message
-        # driver.find_element_by_xpath("//div[@class='EBaI7']/button[@class='_1E0Oz']").click()
 
     except Exception as e:
         print(f"User with name {user_name} Not Found!")
-        # driver.close()
-        # driver.quit()
 
 
 for user_name in send_message_to:
@@ -98,25 +88,10 @@ for user_name in send_message_to:
         send_message()
         time.sleep(3)
         send_file(file_path, user_name)
-        # message = driver.find_element_by_xpath("//div[@class='_2A8P4']")
-        # time.sleep(1)
-        # message.send_keys("Hello, This is a Whatsapp Bot. Now working properly")
-        # time.sleep(1)
-        #
-        # # send message
-        # driver.find_element_by_xpath("//div[@class='EBaI7']/button[@class='_1E0Oz']").click()
 
     except NoSuchElementException as se:
         print(f"Searching User {user_name}")
         find_user(user_name)
-
-    # message = driver.find_element_by_xpath("//div[@class='_2A8P4']")
-    # time.sleep(1)
-    # message.send_keys("Hello, This is a Whatsapp Bot. Now working properly")
-    # time.sleep(1)
-    #
-    # # send message
-    # driver.find_element_by_xpath("//div[@class='EBaI7']/button[@class='_1E0Oz']").click()
 
 time.sleep(3)
 driver.close()
