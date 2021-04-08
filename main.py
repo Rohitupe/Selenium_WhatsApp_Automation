@@ -43,7 +43,7 @@ file_path = "C:/Users/rohit/Desktop/samplePdf.pdf"
 def send_message():
     message = driver.find_element_by_xpath("//div[@class='_2A8P4']")
     time.sleep(1)
-    message.send_keys("Hello, This is a Whatsapp Bot")
+    message.send_keys("Hello, This is a Whatsapp Bot.")
     time.sleep(1)
 
     # send message
