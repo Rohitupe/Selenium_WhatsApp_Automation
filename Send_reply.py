@@ -25,7 +25,7 @@ try:
     if not check:
         driver.find_element_by_xpath("//input[@name='rememberMe']").click()
 except:
-    print("keep me Signed in is check - user already sign in")
+    print("keep me Signed in is checked")
 
 # if not sign in wait for user to scan QR Code
 try:

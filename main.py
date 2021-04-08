@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+
 # explicit wait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
