@@ -9,14 +9,14 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import NoSuchElementException
 
 # chrome options
-# chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--user-data-dir=C:/Users/rohit/AppData/Local/Google/Chrome/User Data')
-# chrome_options.add_argument('--profile-directory=Default')
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--user-data-dir=C:/Users/rohit/AppData/Local/Google/Chrome/User Data')
+chrome_options.add_argument('--profile-directory=Default')
 
-# driver = webdriver.Chrome(executable_path="driver/chromedriver.exe", options=chrome_options)
-driver = webdriver.Chrome(executable_path="driver/chromedriver.exe")
+driver = webdriver.Chrome(executable_path="driver/chromedriver.exe", options=chrome_options)
+# driver = webdriver.Chrome(executable_path="driver/chromedriver.exe")
 driver.implicitly_wait(10)
-driver.maximize_window()
+# driver.maximize_window()
 
 driver.get("https://web.whatsapp.com/")
 
@@ -59,5 +59,5 @@ for message_popup in allMessages:
             print("No new message Found")
 
     except NoSuchElementException as e:
-        print("No new message Found: ", e)
+        print("Element Not Found: ", e)
 
