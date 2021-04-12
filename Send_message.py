@@ -26,7 +26,7 @@ try:
     if not check:
         driver.find_element_by_xpath("//input[@name='rememberMe']").click()
 except:
-    print("keep me Signed in is check - user already sign in")
+    print("keep me Sign-in is check - user already sign in")
 
 # if not sign in wait for user to scan QR Code
 try:
@@ -59,7 +59,7 @@ def send_file(file_path, user_name):
         time.sleep(2)
         driver.find_element_by_xpath("//div[@role='button']/span[@data-icon='send']").click()
     else:
-        print("Not Special User")
+        print(f"{user_name} is not Special User can't share document")
 
 
 def find_user(user_name):
