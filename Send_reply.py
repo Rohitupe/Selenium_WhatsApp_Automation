@@ -42,7 +42,7 @@ for message_popup in allMessages:
     time.sleep(2)
     try:
         if int(message_popup.text) >= 1:
-            print("yes" + message_popup.text)
+            print(f"{message_popup.text} messages received")
             username = message_popup.find_element_by_xpath("ancestor::div[@class='TbtXF']")
             username.click()
             time.sleep(2)

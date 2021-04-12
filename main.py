@@ -37,7 +37,7 @@ except:
     driver.quit()
 
 # message user
-send_message_to = ['BE PROJECT', 'Plan Squad', 'Aai', 'Karan Johar', 'Mangesh Khedkar']
+send_message_to = ['BE PROJECT', 'Plan Squad', 'Aai', 'Karan Johar', 'Rohit Tupe']
 file_path = "C:/Users/rohit/Desktop/samplePdf.pdf"
 
 
